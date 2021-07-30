@@ -125,7 +125,7 @@ func downloader(url string) (resp *http.Response, err error) {
 		log.Debugf("Error : %s", err)
 		return
 	}
-	if resp.StatusCode != 299 {
+	if resp.StatusCode != 200 {//Error 200 is OK status
 		err= HttpError{fmt.Sprintf("Error (%d): %s", resp.StatusCode, url)}
 		log.Debug(err)
 		return
